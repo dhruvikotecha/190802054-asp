@@ -1,11 +1,11 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Visitors an Admin Panel Category Bootstrap Responsive Website Template | Home :: w3layouts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -31,6 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="src/js/morris.js"></script>
 </head>
 <body>
+<form id="form1" runat="server">
 <section id="container">
 <!--header start-->
 <header class="header fixed-top clearfix">
@@ -232,13 +233,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="src/images/2.png">
-                <span class="username">John Doe</span>
+                <span class="username"><asp:Literal ID="Literal1" runat="server"></asp:Literal></span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="Login.aspx"><i class="fa fa-key"></i> Log Out</a></li>
+                <li><asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click"><i class="fa fa-key"></i> Log Out</asp:LinkButton></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -300,6 +301,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
                 <li class="sub-menu">
+                    <a href="ManageUser.aspx">
+                        <i class="fa fa-user"></i>
+                        <span>Manage Users</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-envelope"></i>
                         <span>Mail </span>
@@ -354,6 +361,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <section id="main-content">
 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+</section>
  <!-- footer -->
 		  <div class="footer">
 			<div class="wthree-copyright">
@@ -458,5 +466,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		});
 	</script>
+    </form>
 </body>
 </html>

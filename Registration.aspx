@@ -3,8 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Visitors an Admin Panel Category Bootstrap Responsive Website Template | Registration
-        :: w3layouts</title>
+    <title>Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -32,27 +31,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 Register Now</h2>
             <form id="form2" runat="server">
             <asp:TextBox ID="TextBox1" runat="server" class="ggg" name="Name" placeholder="NAME"></asp:TextBox>
-            <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ErrorMessage="Please enter name" ControlToValidate="TextBox1" 
                 Display="Dynamic" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-            <br />
-            <br />
-            <asp:TextBox ID="TextBox2" runat="server" class="ggg" name="Email" placeholder="E-MAIL"></asp:TextBox>
-            <br />
+            <asp:TextBox ID="TextBox2" runat="server" class="ggg" name="Email" 
+                placeholder="E-MAIL" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                 ErrorMessage="Please enter email" ControlToValidate="TextBox2" 
-                Display="Dynamic" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-            <br />
-            <br />
-            <asp:TextBox ID="TextBox3" runat="server" class="ggg" name="Password" placeholder="PASSWORD"></asp:TextBox>
-            <br />
+                Display="Dynamic" ForeColor="#FF3300" Width="399px"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="TextBox3" runat="server" class="ggg" name="Password" 
+                placeholder="PASSWORD" TextMode="Password"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                 ErrorMessage="Please enter password" ControlToValidate="TextBox3" 
-                Display="Dynamic" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-            <br />
-            <br />
-            <asp:TextBox ID="TextBox4" runat="server" class="ggg" name="Confirm" placeholder="CONFIRM PASSWORD"></asp:TextBox>
+                Display="Dynamic" ForeColor="#FF3300" Width="402px"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="TextBox4" runat="server" class="ggg" name="Confirm" 
+                placeholder="CONFIRM PASSWORD" TextMode="Password"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                ErrorMessage="Please enter password" ControlToValidate="TextBox4" 
+                Display="Dynamic" ForeColor="#FF3300" Width="402px"></asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                ErrorMessage="Confirm password should be same as Password" 
+                ControlToCompare="TextBox3" ControlToValidate="TextBox4" Display="Dynamic" 
+                ForeColor="#FF3300" Width="475px"></asp:CompareValidator>
             <h4>
                 <input type="checkbox" />I agree to the Terms of Service and Privacy Policy</h4>
             <div class="clearfix">

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Default : System.Web.UI.Page
+public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -13,5 +13,14 @@ public partial class _Default : System.Web.UI.Page
         {
             Response.Redirect("~/Login.aspx");
         }
+        else
+        {
+            Literal1.Text = Session["email"].ToString();
+        }
+    }
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        Session["email"] = null;
+        Response.Redirect("~/Login.aspx");
     }
 }
