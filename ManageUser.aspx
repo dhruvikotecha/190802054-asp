@@ -15,14 +15,18 @@
                             <div class="position-center">
                                 <form role="form">
                                 <div class="form-group">
+                                    <label for="exampleInputEmail1">Name</label>
+                                    <asp:TextBox ID="TextBox1" class="form-control" placeholder="Enter name" runat="server"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <asp:TextBox ID="TextBox2" class="form-control" placeholder="Enter email" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <asp:TextBox ID="TextBox3" class="form-control" placeholder="Password" runat="server"></asp:TextBox>
                                 </div>
-                                <div class="form-group">
+                                <!--<div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <input type="file" id="exampleInputFile">
                                     <p class="help-block">Example block-level help text here.</p>
@@ -31,13 +35,13 @@
                                     <label>
                                         <input type="checkbox"> Check me out
                                     </label>
-                                </div>
-                                <button type="submit" class="btn btn-info">Submit</button>
+                                </div>-->
+                                <asp:Button ID="Button2" class="btn btn-info" runat="server" Text="Update" 
+                                    onclick="Button2_Click"></asp:Button>
                                 <div class="checkbox">
                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-        BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" 
-        CellPadding="3" GridLines="Horizontal">
-        <AlternatingRowStyle BackColor="#F7F7F7" />
+        BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" 
+        CellPadding="4" GridLines="Horizontal" Width="100%">
         <Columns>
             <asp:TemplateField HeaderText="id">
                 <ItemTemplate>
@@ -65,16 +69,22 @@
                         CommandArgument='<%# Eval("id") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="edit">
+                <ItemTemplate>
+                    <asp:Button ID="Button3" runat="server" CommandArgument='<%# Eval("id") %>' 
+                        onclick="Button3_Click" Text="Edit" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
-        <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
-        <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
-        <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
-        <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
-        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
-        <SortedAscendingCellStyle BackColor="#F4F4FD" />
-        <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
-        <SortedDescendingCellStyle BackColor="#D8D8F0" />
-        <SortedDescendingHeaderStyle BackColor="#3E3277" />
+        <FooterStyle BackColor="White" ForeColor="#333333" />
+        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="White" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+        <SortedAscendingHeaderStyle BackColor="#487575" />
+        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+        <SortedDescendingHeaderStyle BackColor="#275353" />
     </asp:GridView>
     </div>
     <div class="checkbox">
