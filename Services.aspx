@@ -20,27 +20,15 @@
         <div class="container py-lg-5 py-md-4 py-2">
             <h3 class="title-style text-center mb-lg-5 mb-4">Services we're <span>offering</span></h3>
             <div class="row">
+                <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
                 <div class="col-lg-3 col-sm-6">
-                    <div class="grids5-info">
-                        <a href="services.html" class="blog-image d-block zoom"><img src="assets/images/s1.jpg" alt=""
-                                class="img-fluid radius-image" />
-                            <div class="image-overlay">
-                                <h4>Measurements</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
-                            </div>
-                            <div class="iconic-plus">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-sm-0 mt-4">
                     <div class="grids5-info">
                         <a href="services.html" class="blog-image d-block zoom"><img src="assets/images/s2.jpg" alt=""
                                 class="img-fluid radius-image" />
                             <div class="image-overlay">
-                                <h4>Repair</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
+                                <h4><%# Eval("title") %></h4>
+                                <p><%# Eval("description") %></p>
                             </div>
                             <div class="iconic-plus">
                                 <i class="fas fa-plus"></i>
@@ -48,90 +36,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 mt-lg-0 mt-4">
-                    <div class="grids5-info">
-                        <a href="services.html" class="blog-image d-block zoom"><img src="assets/images/s3.jpg" alt=""
-                                class="img-fluid radius-image" />
-                            <div class="image-overlay">
-                                <h4>Сutting-out</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
-                            </div>
-                            <div class="iconic-plus">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-lg-0 mt-4">
-                    <div class="grids5-info">
-                        <a href="services.html" class="blog-image d-block zoom"><img src="assets/images/s4.jpg" alt=""
-                                class="img-fluid radius-image" />
-                            <div class="image-overlay">
-                                <h4>Resize</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
-                            </div>
-                            <div class="iconic-plus">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-4">
-                    <div class="grids5-info">
-                        <a href="services.html" class="blog-image d-block zoom"><img src="assets/images/s5.jpg" alt=""
-                                class="img-fluid radius-image" />
-                            <div class="image-overlay">
-                                <h4>Sewing</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
-                            </div>
-                            <div class="iconic-plus">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-4">
-                    <div class="grids5-info">
-                        <a href="services.html" class="blog-image d-block zoom"><img src="assets/images/s6.jpg" alt=""
-                                class="img-fluid radius-image" />
-                            <div class="image-overlay">
-                                <h4>Restoration</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
-                            </div>
-                            <div class="iconic-plus">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-4">
-                    <div class="grids5-info">
-                        <a href="services.html" class="blog-image d-block zoom"><img src="assets/images/s7.jpg" alt=""
-                                class="img-fluid radius-image" />
-                            <div class="image-overlay">
-                                <h4>Сuttings</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
-                            </div>
-                            <div class="iconic-plus">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-4">
-                    <div class="grids5-info">
-                        <a href="services.html" class="blog-image d-block zoom"><img src="assets/images/s8.jpg" alt=""
-                                class="img-fluid radius-image" />
-                            <div class="image-overlay">
-                                <h4>Measurements</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
-                            </div>
-                            <div class="iconic-plus">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
     </div>
