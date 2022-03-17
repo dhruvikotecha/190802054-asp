@@ -14,71 +14,65 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         print();
-        //DeleteCommand="DELETE FROM [services] WHERE [id] = @id" 
-        //InsertCommand="INSERT INTO [services] ([title], [description], [status]) VALUES (@title, @description, @status)"  
-        //SelectCommand="SELECT [id], [title], [description], [status] FROM [services]" 
-        //UpdateCommand="UPDATE [services] SET [title] = @title, [description] = @description, [status] = @status WHERE [id] = @id">
+        //DeleteCommand="DELETE FROM [categories] WHERE [id] = @id" 
+        //InsertCommand="INSERT INTO [categories] ([category], [status]) VALUES (@category, @status)" 
+        //SelectCommand="SELECT [id], [category], [status] FROM [categories]" 
+        //UpdateCommand="UPDATE [categories] SET [category] = @category, [status] = @status WHERE [id] = @id">
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
         if (Button2.Text == "Submit")
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [services] ([title], [description], [status]) VALUES (@title, @description, @status)", con);
-            cmd.Parameters.AddWithValue("@title", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@description", TextBox2.Text);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [categories] ([category], [status]) VALUES (@category, @status)", con);
+            cmd.Parameters.AddWithValue("@category", TextBox1.Text);
             cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
             con.Open();
             int s = cmd.ExecuteNonQuery();
             con.Close();
             if (s == 1)
             {
-                TextBox1.Text = string.Empty;
-                TextBox2.Text = string.Empty;
-                RadioButtonList1.ClearSelection();
                 print();
-                Literal1.Text = "Services inserted successfully";
+                TextBox1.Text = string.Empty;
+                RadioButtonList1.ClearSelection();
+                Literal1.Text = "Category inserted successfully";
             }
             else
             {
-                TextBox1.Text = string.Empty;
-                TextBox2.Text = string.Empty;
-                RadioButtonList1.ClearSelection();
                 print();
+                TextBox1.Text = string.Empty;
+                RadioButtonList1.ClearSelection();
                 Literal1.Text = "Error!!";
             }
         }
         else
         {
-            SqlCommand cmd = new SqlCommand("UPDATE [services] SET [title] = @title, [description] = @description, [status] = @status WHERE [id] = @id", con);
-            cmd.Parameters.AddWithValue("@title", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@description", TextBox2.Text);
+            SqlCommand cmd = new SqlCommand("UPDATE [categories] SET [category] = @category, [status] = @status WHERE [category_id] = @category_id", con);
+            cmd.Parameters.AddWithValue("@category", TextBox1.Text);
             cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
-            cmd.Parameters.AddWithValue("@id", ViewState["id"]);
+            cmd.Parameters.AddWithValue("@category_id", ViewState["category_id"]);
             con.Open();
             int s = cmd.ExecuteNonQuery();
             con.Close();
             if (s == 1)
             {
-                TextBox1.Text = string.Empty;
-                TextBox2.Text = string.Empty;
-                RadioButtonList1.ClearSelection();
                 print();
-                Literal1.Text = "Services updated successfully";
+                TextBox1.Text = string.Empty;
+                RadioButtonList1.ClearSelection();
+                Literal1.Text = "Category updated successfully";
                 Button2.Text = "Submit";
             }
             else
             {
-                TextBox1.Text = string.Empty;
-                TextBox2.Text = string.Empty;
-                RadioButtonList1.ClearSelection();
                 print();
+                TextBox1.Text = string.Empty;
+                RadioButtonList1.ClearSelection();
                 Literal1.Text = "Error!!";
             }
         }
     }
     public void print()
     {
-        SqlDataAdapter adpt = new SqlDataAdapter("SELECT [id], [title], [description], [status] FROM [services]", con);
+        SqlDataAdapter adpt = new SqlDataAdapter("SELECT [category_id], [category], [status] FROM [categories]", con);
         DataTable dt = new DataTable();
         adpt.Fill(dt);
         GridView1.DataSource = dt;
@@ -87,38 +81,35 @@ public partial class _Default : System.Web.UI.Page
     protected void Button3_Click(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
-        SqlCommand cmd = new SqlCommand("DELETE FROM [services] WHERE [id] = @id", con);
-        cmd.Parameters.AddWithValue("@id", btn.CommandArgument);
+        SqlCommand cmd = new SqlCommand("DELETE FROM [categories] WHERE [category_id] = @category_id", con);
+        cmd.Parameters.AddWithValue("@category_id", btn.CommandArgument);
         con.Open();
         int s = cmd.ExecuteNonQuery();
         con.Close();
         if (s == 1)
         {
-            TextBox1.Text = string.Empty;
-            TextBox2.Text = string.Empty;
-            RadioButtonList1.ClearSelection();
             print();
-            Literal1.Text = "Services deleted successfully";
+            TextBox1.Text = string.Empty;
+            RadioButtonList1.ClearSelection();
+            Literal1.Text = "Category deleted successfully";
         }
         else
         {
-            TextBox1.Text = string.Empty;
-            TextBox2.Text = string.Empty;
-            RadioButtonList1.ClearSelection();
             print();
+            TextBox1.Text = string.Empty;
+            RadioButtonList1.ClearSelection();
             Literal1.Text = "Error!!";
         }
     }
     protected void Button4_Click(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
-        SqlDataAdapter adpt = new SqlDataAdapter("SELECT [id], [title], [description], [status] FROM [services] WHERE [id] = " + btn.CommandArgument, con);
+        SqlDataAdapter adpt = new SqlDataAdapter("SELECT [category_id], [category], [status] FROM [categories] WHERE [category_id] = " + btn.CommandArgument, con);
         DataTable dt = new DataTable();
         adpt.Fill(dt);
         TextBox1.Text = dt.Rows[0][1].ToString();
-        TextBox2.Text = dt.Rows[0][2].ToString();
-        RadioButtonList1.SelectedValue = dt.Rows[0][3].ToString();
-        ViewState["id"] = btn.CommandArgument;
+        RadioButtonList1.SelectedValue = dt.Rows[0][2].ToString();
+        ViewState["category_id"] = btn.CommandArgument;
         Button2.Text = "Update";
     }
 }

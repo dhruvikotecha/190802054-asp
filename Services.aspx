@@ -28,7 +28,7 @@
                                 class="img-fluid radius-image" />
                             <div class="image-overlay">
                                 <h4><%# Eval("title") %></h4>
-                                <p><%# Eval("description") %></p>
+                                <p><%# Eval("description").ToString().Length > 180 ? Eval("description").ToString().Substring(0, 180) + "..." : Eval("description").ToString()%></p>
                             </div>
                             <div class="iconic-plus">
                                 <i class="fas fa-plus"></i>
