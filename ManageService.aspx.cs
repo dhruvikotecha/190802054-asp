@@ -23,28 +23,49 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Button2.Text == "Submit")
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [services] ([title], [description], [status]) VALUES (@title, @description, @status)", con);
-            cmd.Parameters.AddWithValue("@title", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@description", TextBox2.Text);
-            cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
-            con.Open();
-            int s = cmd.ExecuteNonQuery();
-            con.Close();
-            if (s == 1)
+            if (TextBox1.Text == "" || TextBox2.Text == "" || RadioButtonList1.SelectedItem == null)
             {
-                TextBox1.Text = string.Empty;
-                TextBox2.Text = string.Empty;
-                RadioButtonList1.ClearSelection();
-                print();
-                Literal1.Text = "Services inserted successfully";
+                if (TextBox1.Text == "")
+                {
+                    Literal6.Text = "<span style='color:red'>Please Enter Title</span>";
+                }
+                if (TextBox2.Text == "")
+                {
+                    Literal7.Text = "<span style='color:red'>Please Enter Description</span>";
+                }
+                if (RadioButtonList1.SelectedItem == null)
+                {
+                    Literal8.Text = "<span style='color:red'>Please Select Status</span>";
+                }
             }
             else
             {
-                TextBox1.Text = string.Empty;
-                TextBox2.Text = string.Empty;
-                RadioButtonList1.ClearSelection();
-                print();
-                Literal1.Text = "Error!!";
+                SqlCommand cmd = new SqlCommand("INSERT INTO [services] ([title], [description], [status]) VALUES (@title, @description, @status)", con);
+                cmd.Parameters.AddWithValue("@title", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@description", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
+                con.Open();
+                int s = cmd.ExecuteNonQuery();
+                con.Close();
+                if (s == 1)
+                {
+                    TextBox1.Text = string.Empty;
+                    TextBox2.Text = string.Empty;
+                    RadioButtonList1.ClearSelection();
+                    Literal6.Text = string.Empty;
+                    Literal7.Text = string.Empty;
+                    Literal8.Text = string.Empty;
+                    print();
+                    Literal1.Text = "Services inserted successfully";
+                }
+                else
+                {
+                    TextBox1.Text = string.Empty;
+                    TextBox2.Text = string.Empty;
+                    RadioButtonList1.ClearSelection();
+                    print();
+                    Literal1.Text = "Error!!";
+                }
             }
         }
         else

@@ -23,25 +23,41 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Button2.Text == "Submit")
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [categories] ([category], [status]) VALUES (@category, @status)", con);
-            cmd.Parameters.AddWithValue("@category", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
-            con.Open();
-            int s = cmd.ExecuteNonQuery();
-            con.Close();
-            if (s == 1)
+            if (TextBox1.Text == "" || RadioButtonList1.SelectedItem == null)
             {
-                print();
-                TextBox1.Text = string.Empty;
-                RadioButtonList1.ClearSelection();
-                Literal1.Text = "Category inserted successfully";
+                if (TextBox1.Text == "")
+                {
+                    Literal5.Text = "<span style='color:red'>Please Enter Category</span>";
+                }
+                if (RadioButtonList1.SelectedItem == null)
+                {
+                    Literal6.Text = "<span style='color:red'>Please Select Status</span>";
+                }
             }
             else
             {
-                print();
-                TextBox1.Text = string.Empty;
-                RadioButtonList1.ClearSelection();
-                Literal1.Text = "Error!!";
+                SqlCommand cmd = new SqlCommand("INSERT INTO [categories] ([category], [status]) VALUES (@category, @status)", con);
+                cmd.Parameters.AddWithValue("@category", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
+                con.Open();
+                int s = cmd.ExecuteNonQuery();
+                con.Close();
+                if (s == 1)
+                {
+                    print();
+                    TextBox1.Text = string.Empty;
+                    RadioButtonList1.ClearSelection();
+                    Literal5.Text = string.Empty;
+                    Literal6.Text = string.Empty;
+                    Literal1.Text = "Category inserted successfully";
+                }
+                else
+                {
+                    print();
+                    TextBox1.Text = string.Empty;
+                    RadioButtonList1.ClearSelection();
+                    Literal1.Text = "Error!!";
+                }
             }
         }
         else

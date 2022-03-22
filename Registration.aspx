@@ -35,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 ErrorMessage="Please enter name" ControlToValidate="TextBox1" 
                 Display="Dynamic" ForeColor="#FF3300"></asp:RequiredFieldValidator>
             <asp:TextBox ID="TextBox2" runat="server" class="ggg" name="Email" 
-                placeholder="E-MAIL" TextMode="Password"></asp:TextBox>
+                placeholder="E-MAIL"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                 ErrorMessage="Please enter email" ControlToValidate="TextBox2" 
                 Display="Dynamic" ForeColor="#FF3300" Width="399px"></asp:RequiredFieldValidator>

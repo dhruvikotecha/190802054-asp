@@ -7,7 +7,7 @@
             <div class="container pt-4 pb-sm-4">
                 <h4 class="inner-text-title font-weight-bold pt-sm-5 pt-4">Contact Us</h4>
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Home.aspx">Home</a></li>
                     <li class="active"><i class="fas fa-angle-right mx-2"></i>Contact</li>
                 </ul>
             </div>
@@ -42,31 +42,47 @@
                 </div>
             </div>
             <div class="form-inner-cont mx-auto" style="max-width:800px">
-                <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
                     <div class="row align-form-map">
                         <div class="col-sm-6 form-input">
-                            <input type="text" name="w3lName" id="w3lName" placeholder="Name" />
+                            <asp:TextBox ID="TextBox1" runat="server" placeholder="Name"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                ErrorMessage="Please Enter Name" ControlToValidate="TextBox1" Display="Dynamic" 
+                                ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-sm-6 form-input">
-                            <input type="email" name="w3lSender" id="w3lSender" placeholder="Email" required="" />
+                            <asp:TextBox ID="TextBox2" runat="server" placeholder="Email"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                ErrorMessage="Please Enter Email" ControlToValidate="TextBox2" 
+                                Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="col-sm-6 form-input">  
+                            <asp:TextBox ID="TextBox3" runat="server" placeholder="Subject" class="contact-input"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                ErrorMessage="Please Enter Subject" ControlToValidate="TextBox3" 
+                                Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-sm-6 form-input">
-                            <input type="text" name="w3lSubect" placeholder="Subject" class="contact-input">
-                        </div>
-                        <div class="col-sm-6 form-input">
-                            <input type="number" name="w3lPhone" placeholder="Phone Number" class="contact-input">
+                            <asp:TextBox ID="TextBox4" runat="server" placeholder="Phone Number" class="contact-input"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                ErrorMessage="Please Enter Phone Number" ControlToValidate="TextBox4" 
+                                Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" 
+                                runat="server" ErrorMessage="Please Enter 10 digits" 
+                                ControlToValidate="TextBox4" Display="Dynamic" ForeColor="Red" 
+                                ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
                         </div>
                     </div>
                     <div class="form-input">
-                        <textarea placeholder="Message" name="w3lMessage" id="w3lMessage" required=""></textarea>
+                        <asp:TextBox ID="TextBox5" runat="server" placeholder="Message"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                            ErrorMessage="Please Enter Message" ControlToValidate="TextBox5" 
+                            Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
-                    <div class="submit text-right">
-                        <button type="submit" class="btn btn-style">Submit
-                            Message</button>
+                    <div class="form-input">  
+                        <asp:Button ID="Button1" runat="server" Text="Submit Message" onclick="Button1_Click"></asp:Button>
                     </div>
-                </form>
             </div>
-        </div>
+        </div>  
     </section>
     <!-- map -->
     <div class="map">

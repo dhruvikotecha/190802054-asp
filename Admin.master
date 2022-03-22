@@ -323,6 +323,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
                 <li class="sub-menu">
+                    <a href="ManageContact.aspx">
+                        <i class="fa fa-user"></i>
+                        <span>Manage Contacts</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-envelope"></i>
                         <span>Mail </span>

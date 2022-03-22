@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Basic Forms
+                            Manage Services
                         </header>
                         <div class="panel-body">
                             <div class="position-center">
@@ -16,11 +16,13 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Title</label>
                                     <asp:TextBox ID="TextBox1" class="form-control" placeholder="Enter title" runat="server"></asp:TextBox>
+                                    <asp:Literal ID="Literal6" runat="server"></asp:Literal>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Description</label>
                                     <asp:TextBox ID="TextBox2" class="form-control" placeholder="Enter description" 
                                         runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox>
+                                        <asp:Literal ID="Literal7" runat="server"></asp:Literal>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Status</label>
@@ -29,6 +31,7 @@
                                         <asp:ListItem Value="1">Active</asp:ListItem>
                                         <asp:ListItem Value="0">Deactive</asp:ListItem>
                                     </asp:RadioButtonList>
+                                    <asp:Literal ID="Literal8" runat="server"></asp:Literal>
                                 </div>
                                 <asp:Button ID="Button2" class="btn btn-info" runat="server" Text="Submit" 
                                     onclick="Button2_Click"></asp:Button>

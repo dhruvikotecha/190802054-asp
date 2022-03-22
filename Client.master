@@ -14,6 +14,7 @@
 </head>
 </head>
 <body>
+<form runat="server">
     <!-- header -->
     <header id="site-header" class="fixed-top">
         <div class="container">
@@ -42,11 +43,8 @@
                             <a class="nav-link" href="Contact.aspx">Contact</a>
                         </li>
                     </ul>
-                    <form action="#error" method="GET" class="d-flex search-header">
-                        <input class="form-control" type="search" placeholder="Enter Keyword..." aria-label="Search"
-                            required>
+                        <input class="form-control" type="search" placeholder="Enter Keyword..." aria-label="Search">
                         <button class="btn btn-style" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
                 </div>
                 <!-- toggle switch for light and dark theme -->
                 <div class="cont-ser-position">
@@ -283,5 +281,6 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- //bootstrap -->
     <!-- //Js scripts -->
+    </form>
 </body>
 </html>
